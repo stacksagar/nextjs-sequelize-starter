@@ -23,14 +23,14 @@ Image.init(
     },
 
     properties: {
-      type: DataTypes.JSONB,
+      type: DataTypes.JSON,
       allowNull: true,
       defaultValue: {},
     },
   },
   {
     sequelize,
-    modelName: "Image", 
+    modelName: "Image",
     timestamps: true,
   }
 );

@@ -1,4 +1,3 @@
-import User from "@/models/User";
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(
@@ -9,7 +8,19 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST as string,
     dialect: "mysql",
     dialectModule: require("mysql2"),
-    port: process.env.DB_PORT as unknown as number,
+    port: parseInt(process.env.DB_PORT || "3306"),
+    logging: process.env.NODE_ENV === "development" ? console.log : false,
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+    define: {
+      timestamps: true,
+      underscored: false,
+      freezeTableName: false,
+    },
   }
 );
 
