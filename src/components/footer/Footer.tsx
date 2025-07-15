@@ -64,7 +64,7 @@ export default function Footer() {
                 Need help? Contact us at:
               </p>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                support@authstarter.com
+                stacksagar@gmail.com
               </p>
             </div>
           </div>
