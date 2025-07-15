@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-cabin);
+}
+
+body {
+  background-color: #ffffff;
+  color: #222222;
+}
+
+.dark {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+/* Add transition to all elements that use dark mode classes */
+* {
+  transition-property: color, background-color, text-decoration-color, fill,
+    stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.4, 0.1);
+  /* transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1); */
+  transition-duration: 300ms;
+}
+
+.font-inter {
+  font-family: var(--font-inter), "Inter" !important;
+}
+
+@layer base {
+  .commonColor {
+    @apply text-zinc-800 dark:text-gray-100;
+  }
+
+  .content {
+    @apply w-[95%] 2xl:max-w-[1302px] mx-auto;
+  }
+
+  .svg-responsive {
+    @apply w-4 h-4 sm:w-5 sm:h-5;
+  }
+
+  .primary-button {
+    @apply !bg-[#060acd] !text-white dark:!bg-[#4044ee] dark:hover:!bg-[#5559ff];
+  }
+
+  .primary-button-outline {
+    @apply !bg-[#d5e4ff] !text-[#060acd] !border !border-[#060acd] 
+           dark:!bg-[#2c2e69] dark:!text-[#b2b3ff] dark:!border-[#b2b3ff]
+           dark:hover:!bg-[#363873];
+  }
+
+  .button-circle {
+    @apply !rounded-full;
+  }
+}
+
+/* Input overrides */
+.mc_input input {
+  @apply min-h-[44px] dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+.rounded-full-mc input {
+  @apply rounded-[50px] pl-4 dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+.input-size textarea {
+  @apply h-[44px] pt-[10px] dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+.rounded-mc-textarea textarea {
+  @apply rounded-[100px] dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+.mc_input_with_icon > input {
+  @apply pl-[38px] dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+.mc_input_card_number > input {
+  @apply pl-[64px] dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+}
+
+/* Swiper styles */
+.swiper-slide {
+  @apply text-lg text-white box-border;
+}
+
+.parallax-bg {
+  @apply absolute left-0 top-0 w-[130%] h-full bg-cover bg-center;
+}
+
+.swiper-slide .title {
+  @apply text-[41px] font-light;
+}
+
+.swiper-slide .subtitle {
+  @apply text-xl;
+}
+
+.swiper-slide .text {
+  @apply text-sm max-w-[400px] leading-tight;
+}
+
+.hidden-prev-next .swiper-button-next,
+.hidden-prev-next .swiper-button-prev {
+  @apply !hidden;
+}
+
+/* Scrollbar styles */
+.scroll-thin::-webkit-scrollbar {
+  @apply w-1;
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  @apply bg-black/15 dark:bg-white/15;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-black/20 dark:bg-white/20;
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.dark .scroll-thin {
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* Toast notifications */
+.Toastify__toast {
+  @apply dark:bg-gray-800 dark:text-white;
+}
+
+.Toastify__close-button {
+  @apply dark:text-white;
+}
+
+/* swiper */
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 8px);
+  top: var(--swiper-pagination-top, auto);
+  /* left: 6px !important;
+  bottom: 3px !important; */
+  left: 32px !important;
+  bottom: 24px !important;
+  width: fit-content !important;
+}
+
+span.swiper-pagination-bullet {
+  width: 26px !important;
+  height: 6px !important;
+  border-radius: 4px !important;
+  background: #4a4b58;
+  opacity: 1 !important;
+  transition: all 0.4s;
+}
+
+span.swiper-pagination-bullet-active {
+  background: #b2b3ff !important;
+  width: 60px !important;
+}
+
+/* scroller  */
+/* For Webkit-based browsers (Chrome, Safari, Edge) */ /* For Webkit browsers (Chrome, Safari, Edge) */
+.scroll-thin::-webkit-scrollbar {
+  width: 4px; /* Keeps a small scrollbar */
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15); /* Slightly visible */
+}
+
+.scroll-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2); /* More visible on hover */
+}
+
+/* For Firefox */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* For Internet Explorer & Legacy Edge */
+.scroll-thin {
+  -ms-overflow-style: none; /* Hides scrollbar but keeps scrolling */
+}
+
+/* Show scrollbar only when scrolling */
+.scroll-thin {
+  overflow: auto;
+}
+
+.scroll-thin:hover {
+  scrollbar-width: thin;
+  -ms-overflow-style: auto;
+}
+
+/* custom dark  */
+/* react date range picker */
+.rdrDefinedRangesWrapper {
+  color: black !important;
+}
+
+.all-text-dark,
+.all-text-dark > *,
+.all-text-dark * {
+  color: black !important;
+}
+
+.mantine-InputWrapper-label {
+  @apply !text-gray-900;
+}
+
+.dark .mantine-InputWrapper-label {
+  @apply !text-gray-100;
+}
+
+.mantine-Popover-dropdown * {
+  @apply !text-black;
+}
+
+.dark .mantine-Menu-dropdown {
+  @apply !bg-gray-900 !border-gray-700;
+}
