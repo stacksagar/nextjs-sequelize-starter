@@ -1,8 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
 import bcrypt from "bcryptjs";
-import VerificationCode from "./VerificationCode";
-import type { UserModelRelations } from "../models.types";
+import VerificationCode from "./VerificationCode"; 
 
 export enum UserRole {
   USER = "user",
@@ -11,11 +10,7 @@ export enum UserRole {
 }
 
 class User extends Model {
-  // Relationship properties from UserModelRelations
-  declare deals?: UserModelRelations["deals"];
-  declare groups?: UserModelRelations["groups"];
-  declare vouchers?: UserModelRelations["vouchers"];
-  declare groupMembers?: UserModelRelations["groupMembers"];
+  // Relationship properties from UserModelRelations 
 
   declare id: string;
   declare email: string;

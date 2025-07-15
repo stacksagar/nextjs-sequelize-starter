@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import User from "@/models/User";
-import connectDB from "@/config/connectDB";
-import { verifyJWT } from "@/utils/jwt";
-import { getUser, getUserId } from "@/server/user.actions";
+import { getUserId } from "@/server/user.actions";
 
 // PATCH /api/user/profile - Update user info (auth required)
 export async function PATCH(request: NextRequest) {

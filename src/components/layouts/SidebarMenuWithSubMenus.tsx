@@ -1,10 +1,10 @@
 import { Menu } from "@mantine/core";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { SIDEBAR_PANEL_MENU } from "./AdminPanelSidebar";
+import { SIDEBAR_PANEL_MENU } from "./DashboardSidebar";
 import { BsChevronDown, BsChevronRight } from "react-icons/bs";
-import CollapseContent from "../../others/CollapseContent";
 import SidebarMenu from "./SidebarMenu";
+import CollapseContent from "../utilities/CollapseContent";
 
 export default function SidebarMenuWithSubMenus({
   title,

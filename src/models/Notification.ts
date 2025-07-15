@@ -8,11 +8,7 @@ class Notification extends Model {
   declare userId: string;
 
   // Relationship properties from NotificationModelRelations
-  declare user?: NotificationModelRelations["user"];
-  declare relatedUser?: NotificationModelRelations["relatedUser"];
-  declare deal?: NotificationModelRelations["deal"];
-  declare group?: NotificationModelRelations["group"];
-  declare order?: NotificationModelRelations["order"];
+  declare user?: NotificationModelRelations["user"]; 
 
   declare type: "system" | "deal" | "order" | "refund" | "complaint";
   declare title: string;

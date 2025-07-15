@@ -1,7 +1,8 @@
 import ButtonMedium from "@/components/common/buttons/ButtonMedium";
-import ArrowLeft from "@/components/icons/ArrowLeft";
-import Footer from "@/components/ui/footer/Footer";
-import Header from "@/components/ui/header/Header";
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import { ArrowLeft } from "lucide-react";
+ 
 import Link from "next/link";
 import React from "react";
 

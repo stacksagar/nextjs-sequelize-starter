@@ -1,4 +1,4 @@
-import { useTheme } from "@/components/ui/theme/ThemeProvider";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 export default function useGetThemeColor(dark?: string, light?: string) {
   const { colorScheme } = useTheme();

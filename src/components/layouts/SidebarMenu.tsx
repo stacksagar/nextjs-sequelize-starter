@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { SIDEBAR_PANEL_MENU } from "./AdminPanelSidebar";
+import { SIDEBAR_PANEL_MENU } from "./DashboardSidebar";
 import { Menu } from "@mantine/core";
 import useIsActivePath from "@/hooks/useIsActivePath";
 

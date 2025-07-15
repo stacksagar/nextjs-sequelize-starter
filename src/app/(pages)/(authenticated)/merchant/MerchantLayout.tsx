@@ -1,7 +1,6 @@
 "use client";
 import DashboardHeader from "@/components/layouts/DashboardHeader";
 import DashboardSidebar from "@/components/layouts/DashboardSidebar";
-import MerchantProfile from "@/models/MerchantProfile";
 import User from "@/models/User";
 import { AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";

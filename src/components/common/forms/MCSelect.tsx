@@ -1,6 +1,6 @@
 import { Select, SelectProps } from "@mantine/core";
 import Label from "./Label";
-import GetThemeComponent from "@/components/ui/others/GetThemeComponent";
+import GetThemeComponent from "@/components/utilities/GetThemeComponent";
 
 export default function MCSelect({
   label,
