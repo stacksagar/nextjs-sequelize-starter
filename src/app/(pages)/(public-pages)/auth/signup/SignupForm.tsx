@@ -137,9 +137,9 @@ export default function SignupForm() {
         </div>
 
         <FormFooter
-          divider
-          // signWithGoogle="Signup with Google"
-          // signWithFacebook="Signup with Facebook"
+        // divider
+        // signWithGoogle="Signup with Google"
+        // signWithFacebook="Signup with Facebook"
         />
       </AuthContainer>
         

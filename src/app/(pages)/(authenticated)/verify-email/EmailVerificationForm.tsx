@@ -28,7 +28,7 @@ export default function EmailVerificationForm({ user }: { user?: User }) {
       if (user?.role === "merchant") {
         router.push("/account-setup");
       } else {
-        router.push("/profile");
+        router.push("/u/profile");
       }
     } catch (err: any) {
       setError(err?.response?.data?.error || "Verification failed");

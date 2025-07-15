@@ -1,18 +1,18 @@
-import { AppShell,   Menu } from "@mantine/core";
+import { AppShell, Menu } from "@mantine/core";
 import React from "react";
 import Link from "next/link";
 import SearchInput from "@/components/common/forms/SearchInput";
 import {
-  BiChart, 
+  BiChart,
   BiChevronRight,
   BiGift,
   BiHistory,
-  BiSolidDashboard, 
+  BiSolidDashboard,
 } from "react-icons/bi";
 import {
   FaCogs,
   FaFileAlt,
-  FaMoneyBill, 
+  FaMoneyBill,
   FaShoppingCart,
   FaTruck,
   FaUsers,
@@ -32,105 +32,18 @@ export interface SIDEBAR_PANEL_MENU {
   sublinks?: SIDEBAR_PANEL_MENUS;
 }
 
-interface SIDEBAR_PANEL_MENUS {
+export interface SIDEBAR_PANEL_MENUS {
   [key: string]: SIDEBAR_PANEL_MENU;
 }
-
-const links: SIDEBAR_PANEL_MENUS = {
-  Dashboard: {
-    url: "/admin",
-    icon: <BiSolidDashboard />,
-  },
-
-  "Users Management": {
-    icon: <FaUsersCog />,
-    sublinks: {
-      Customers: {
-        url: "/admin/customers",
-        icon: <FaUsers />,
-      },
-      Merchants: {
-        url: "/admin/merchants",
-        icon: <FaUsersLine />,
-      },
-    },
-  },
-
-  "Deals Management": {
-    icon: <FaFileAlt />,
-    sublinks: {
-      Deals: {
-        url: "/admin/deals",
-        icon: <FaFile />,
-      },
-      Orders: {
-        url: "/admin/orders",
-        icon: <FaShoppingCart />,
-      },
-    },
-  },
-
-  "Delivery Personnel": {
-    icon: <FaFileAlt />,
-    sublinks: {
-      Personnel: {
-        url: "/admin/delivery-personnels",
-        icon: <FaUsers />,
-      },
-      Deliveries: {
-        url: "/admin/personnel-deliveries",
-        icon: <FaTruck />,
-      },
-    },
-  },
-
-  "Merchant Withdraws": {
-    url: "/admin/merchant-withdraws",
-    icon: <FaMoneyBill />,
-  },
-
-  "Redemption Cards": {
-    url: "/admin/redemption-cards",
-    icon: <BiGift />,
-  },
-
-  Transactions: {
-    url: "/admin/transactions",
-    icon: <BiHistory />,
-  },
-
-  // "Fraud Detection": {
-  //   url: "/admin/fraud-detection",
-  //   icon: <BiCheckShield />,
-  // },
-
-  "Complaint Management": {
-    url: "/admin/complaint-management",
-    icon: <BsUiChecksGrid />,
-  },
-
-  "Reports & Analytics": {
-    url: "/admin/reports-and-analytics",
-    icon: <BiChart />,
-  },
-
-  Messages: {
-    url: "/messages",
-    icon: <MessageCircle />,
-  },
-
-  Settings: {
-    url: "/admin/settings",
-    icon: <FaCogs />,
-  },
-};
 
 export default function DashboardSidebar({
   toggle,
   opened,
+  links,
 }: {
   opened?: boolean;
   toggle: () => void;
+  links?: SIDEBAR_PANEL_MENUS;
 }) {
   return (
     <AppShell.Navbar className="!border-[#EFEFEF] dark:!border-gray-800 dark:!bg-darkMinimalism">
@@ -171,7 +84,7 @@ export default function DashboardSidebar({
         <Menu>
           <div className="flex flex-col gap-y-1">
             {/* links */}
-            {Object.entries(links)?.map(([key, menu]) =>
+            {Object.entries(links || {})?.map(([key, menu]) =>
               menu?.sublinks ? (
                 <SidebarMenuWithSubMenus
                   toggle={toggle}

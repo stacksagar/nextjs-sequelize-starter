@@ -119,9 +119,9 @@ export default function LoginForm() {
         </div>
 
         <FormFooter
-          divider
-          signWithGoogle
-          signWithFacebook
+          // divider
+          // signWithGoogle
+          // signWithFacebook
           text="Don't you have an account?"
           linkText="Sign up"
           link="/auth/signup"

@@ -27,19 +27,19 @@ export async function middleware(req: NextRequest) {
       console.count(userRole?.toUpperCase());
       // Block access to auth pages if logged in
       if (matches(AUTH_PAGES)) {
-        return NextResponse.redirect(new URL("/profile", req.url));
+        return NextResponse.redirect(new URL("/u/profile", req.url));
       }
       // Admin-only protection
       if (path.startsWith("/admin") || path.startsWith("/api/admin")) {
         if (userRole !== "admin") {
-          return NextResponse.redirect(new URL("/profile", req.url));
+          return NextResponse.redirect(new URL("/u/profile", req.url));
         }
       }
 
       // Merchant-only protection
       if (path.startsWith("/merchant") || path.startsWith("/api/merchant")) {
         if (userRole !== "merchant" && userRole !== "admin") {
-          return NextResponse.redirect(new URL("/profile", req.url));
+          return NextResponse.redirect(new URL("/u/profile", req.url));
         }
         // For merchants, check if their profile is verified
         if (userRole === "merchant") {
@@ -63,8 +63,6 @@ export async function middleware(req: NextRequest) {
   const isProtected =
     path.startsWith("/u") ||
     path.startsWith("/verify-email") ||
-    path.startsWith("/profile") ||
-    path.startsWith("/dashboard") ||
     path.startsWith("/admin") ||
     path.startsWith("/merchant") ||
     path.startsWith("/api/admin") ||

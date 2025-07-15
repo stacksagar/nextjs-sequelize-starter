@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
 import bcrypt from "bcryptjs";
-import VerificationCode from "./VerificationCode"; 
+import VerificationCode from "./VerificationCode";
 
 export enum UserRole {
   USER = "user",
@@ -10,7 +10,7 @@ export enum UserRole {
 }
 
 class User extends Model {
-  // Relationship properties from UserModelRelations 
+  // Relationship properties from UserModelRelations
 
   declare id: string;
   declare email: string;
@@ -30,12 +30,6 @@ class User extends Model {
   declare bio?: string;
   declare pushNotification: boolean;
   declare emailNotification: boolean;
-  declare smsNotification: boolean;
-  declare available_balance: number;
-  declare book_balance: number;
-  declare monthly_target: number;
-  declare refund_balance: number;
-  declare categories: string[];
 
   async comparePassword(candidatePassword: string): Promise<boolean> {
     return bcrypt.compare(candidatePassword, this.password);
@@ -124,45 +118,9 @@ User.init(
       defaultValue: true,
     },
 
-    smsNotification: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-
     lastLogin: {
       type: DataTypes.DATE,
       allowNull: true,
-    },
-
-    available_balance: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      defaultValue: 0,
-    },
-
-    book_balance: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      defaultValue: 0,
-    },
-
-    monthly_target: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      defaultValue: 0,
-    },
-
-    refund_balance: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      defaultValue: 0,
-    },
-
-    categories: {
-      type: DataTypes.JSON,
-      allowNull: false,
-      defaultValue: [],
     },
   },
   {
